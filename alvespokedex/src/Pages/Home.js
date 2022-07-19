@@ -3,12 +3,19 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Header from '../Components/Header';
 import PokeCard from '../Components/PokeCard';
-import { pokedexNav, detailsNav } from '../Router/Coordinator'
+import { pokedexNav } from '../Router/Coordinator'
+
 
  function Home() {
   const navigate = useNavigate()
+  const getPokemon = () => { 
+
+  }
   return (
-    <div>Home</div>
+    <div>
+      <button onClick={()=> pokedexNav(navigate)}>Pokedéx</button>
+      <p>Meus pokemóns</p>
+    </div>
   )
 }
 
