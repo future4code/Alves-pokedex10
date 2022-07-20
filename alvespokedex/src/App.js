@@ -1,7 +1,7 @@
 import React from 'react';
 import Router from './Router/Router';
-import GlobalState from './Components/Global/GlobalState';
-import Header from './Components/Header'
+import GlobalState from './Global/GlobalState';
+
 
 function App() {
   return (
