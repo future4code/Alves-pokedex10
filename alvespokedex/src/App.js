@@ -1,6 +1,8 @@
 import React from 'react';
 import Router from './Router/Router';
-import GlobalState from './Components/Global/GlobalState';
+
+import GlobalState from './Global/GlobalState';
+
 
 function App() {
   return (
