@@ -12,3 +12,6 @@ export const detailsNav = (navigate) => {
 
     navigate('detalhe')
 }
+export const voltar = (navigate) => {
+    navigate(-1)
+}
