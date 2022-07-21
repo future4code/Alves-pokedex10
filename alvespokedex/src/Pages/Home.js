@@ -20,6 +20,29 @@ import Header from "../Components/Header/Header";
       //   dataUp={dataUp}
       //   buttonBattle={false}
       />
+      Home
+      <div>
+      {pokemons && pokemons.map((pokemon)=> {
+        return <div>
+         {/* <PokeCard cardType={pokemon.type.name[0]}> */}
+              <div>
+              <p>#{pokemon.id}</p>
+              <h2>{pokemon.name}</h2>
+              <div>
+              Types: {pokemon.types.map((ele)=>{return <div>{ele.type.name}</div>})}
+              </div>
+              <img src={pokemon.sprites.front_default}></img>
+              </div>
+              <div>
+              <p>Detalhes</p>
+              <button onClick={setPokedex(pokemon)}>Capturar!</button>
+              </div>
+           {/* </PokeCard>  */}
+            </div>
+            })}
+      
+      </div>
+
     </div>
   )
 }
