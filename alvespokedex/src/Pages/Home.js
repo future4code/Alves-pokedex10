@@ -1,22 +1,17 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { pokedexNav, detailsNav } from '../Router/Coordinator'
-
-import  GlobalContext  from '../Global/GlobalContext'
+// import { GlobalContext } from '../Components/Global/GlobalContext'
 import Header from "../Components/Header/Header";
 
 
 
-
  function Home() {
-  const pokemons = useContext(GlobalContext).pokemons
-  console.log(pokemons)
   const navigate = useNavigate()
   return (
     <div>
-
-  <Header
+      <Header
       //   isDetails={false}
       //   title='Pokedex' goto={goToPokedex} />
       // <PokemonCard
@@ -47,6 +42,7 @@ import Header from "../Components/Header/Header";
             })}
       
       </div>
+
     </div>
   )
 }
