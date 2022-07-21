@@ -3,8 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { pokedexNav, detailsNav } from '../Router/Coordinator'
 
-import  GlobalContext  from '../Global/GlobalContext'
-import Header from "../Components/Header/Header";
 
 
 
