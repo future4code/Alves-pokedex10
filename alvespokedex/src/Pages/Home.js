@@ -1,14 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { pokedexNav, detailsNav } from '../Router/Coordinator'
-// import { GlobalContext } from '../Components/Global/GlobalContext'
+import  GlobalContext  from '../Global/GlobalContext'
 import Header from "../Components/Header/Header";
 
 
 
  function Home() {
   const navigate = useNavigate()
+  const pokemons = useContext(GlobalContext).pokemons
+  console.log(pokemons)
   return (
     <div>
       <Header
