@@ -12,9 +12,9 @@ import Header from "../Components/Header/Header";
 
   const {pokemons, setPokedex, pokedex} = useContext(GlobalContext)
   const handleCard = (pokemon)=> {
-    let arraypoke = pokedex
-      arraypoke = [...arraypoke, pokemon]
-    setPokedex(arraypoke)
+    let arraypokes = pokedex
+      arraypokes = [...arraypokes, pokemon]
+    setPokedex(arraypokes)
     console.log(pokedex)
   }
   console.log(pokemons)
