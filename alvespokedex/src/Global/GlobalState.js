@@ -10,16 +10,7 @@ const GlobalState = (props) => {
 
   useEffect(() => { getPokemons()}, [])
   useEffect(() => {
-    setPokemons(pokemons.filter((item) => {
-      if (pokedex.includes(item)) {
-        return false
-      } else {
-        return true
-      }
-    }
-    )
-    )
-
+    setPokemons(pokemons.filter((item) =>!pokedex.includes(item)))
   }, [pokedex])
 
   const getPokemons = () => {

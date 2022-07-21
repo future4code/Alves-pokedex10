@@ -28,7 +28,7 @@ import  GlobalContext  from '../Global/GlobalContext'
               </div>
               <div>
               <p>Detalhes</p>
-              <button>Capturar!</button>
+              <button onClick={setPokedex(pokemon)}>Capturar!</button>
               </div>
            {/* </PokeCard>  */}
             </div>
