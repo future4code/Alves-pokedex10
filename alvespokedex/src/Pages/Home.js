@@ -9,7 +9,14 @@ import Header from "../Components/Header/Header";
 
  function Home() {
   const navigate = useNavigate()
-  const pokemons = useContext(GlobalContext).pokemons
+
+  const {pokemons, setPokedex, pokedex} = useContext(GlobalContext)
+  const handleCard = (pokemon)=> {
+    let arraypokes = pokedex
+      arraypokes = [...arraypokes, pokemon]
+    setPokedex(arraypokes)
+    console.log(pokedex)
+  }
   console.log(pokemons)
   return (
     <div>
@@ -37,7 +44,7 @@ import Header from "../Components/Header/Header";
               </div>
               <div>
               <p>Detalhes</p>
-              <button onClick={setPokedex(pokemon)}>Capturar!</button>
+              <button onClick={()=>handleCard(pokemon)}>Capturar!</button>
               </div>
            {/* </PokeCard>  */}
             </div>
