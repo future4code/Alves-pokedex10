@@ -4,6 +4,7 @@ import axios from 'axios';
 import  GlobalContext  from '../Global/GlobalContext'
 import Header from '../Components/Header';
 
+
  function Pokedex() {
   return (
 
