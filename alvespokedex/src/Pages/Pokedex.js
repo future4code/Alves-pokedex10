@@ -10,7 +10,7 @@ import  GlobalContext  from '../Global/GlobalContext'
 
     <div>
       {/* <Header/> */}
-      Pokedex
+      Pokedextext
     </div>
     
   )
