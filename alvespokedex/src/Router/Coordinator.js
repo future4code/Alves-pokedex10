@@ -5,12 +5,12 @@ export const homeNav = (navigate) => {
 
 export const pokedexNav = (navigate) => {
 
-    navigate('pokedex')
+    navigate('/pokedex')
 }
 
 export const detailsNav = (navigate) => {
 
-    navigate('detalhe')
+    navigate('/detail')
 }
 export const voltar = (navigate) => {
     navigate(-1)

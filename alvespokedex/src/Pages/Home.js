@@ -10,7 +10,7 @@ import Header from "../Components/Header/Header";
  function Home() {
   const navigate = useNavigate()
 
-  const {pokemons, setPokedex, pokedex} = useContext(GlobalContext)
+  const {pokemons, setPokedex, pokedex, setPokeDetail} = useContext(GlobalContext)
   const handleCard = (pokemon)=> {
     let arraypokes = pokedex
       arraypokes = [...arraypokes, pokemon]
@@ -20,15 +20,6 @@ import Header from "../Components/Header/Header";
   console.log(pokemons)
   return (
     <div>
-      <Header
-      //   isDetails={false}
-      //   title='Pokedex' goto={goToPokedex} />
-      // <PokemonCard
-      //   buttonAddRem='Adicionar'
-      //   pokemonDetails={pokemonDetailsFromHome}
-      //   dataUp={dataUp}
-      //   buttonBattle={false}
-      />
       Home
       <div>
       {pokemons && pokemons.map((pokemon)=> {
@@ -40,10 +31,10 @@ import Header from "../Components/Header/Header";
               <div>
               Types: {pokemon.types.map((ele)=>{return <div>{ele.type.name}</div>})}
               </div>
-              <img src={pokemon.sprites.front_default}></img>
+              <img src={pokemon.sprites.other["official-artwork"].front_default}></img>
               </div>
               <div>
-              <p>Detalhes</p>
+              <button onClick={()=>{setPokeDetail(pokemon); detailsNav(navigate)}}>Detalhes</button>
               <button onClick={()=>handleCard(pokemon)}>Capturar!</button>
               </div>
            {/* </PokeCard>  */}
