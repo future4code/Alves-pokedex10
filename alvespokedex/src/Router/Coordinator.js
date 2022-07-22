@@ -10,7 +10,7 @@ export const pokedexNav = (navigate) => {
 
 export const detailsNav = (navigate) => {
 
-    navigate('detalhe')
+    navigate('detail')
 }
 export const voltar = (navigate) => {
     navigate(-1)
