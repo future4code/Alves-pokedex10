@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import GlobalContext from './GlobalContext';
-import { BaseUrl } from '../Components/BaseUrl';
+
 
 
 const GlobalState = (props) => {
@@ -34,7 +34,13 @@ const removeCard = (pokemon)=> {
         axios.get(pokemon.url).then(
           (res) => { 
             console.log(res)
-            arraypoke = [...arraypoke, {name : res.data.name, stats: res.data.stats, sprites: res.data.sprites, types: res.data.types, moves: res.data.moves.slice(0, 4), id: res.data.id}]
+            arraypoke = [...arraypoke, {
+              name : res.data.name, 
+              stats: res.data.stats, 
+              sprites: res.data.sprites, 
+              types: res.data.types, 
+              moves: res.data.moves.slice(0, 4), 
+              id: res.data.id}]
             .sort((a,b)=>a.id-b.id)
             setPokemons(arraypoke)
           }

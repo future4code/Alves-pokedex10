@@ -10,6 +10,7 @@ export default function DetailsPage() {
 
   return (
     <div>
+
       DetailsPage
     {/* <h1>{pokeDetail.name}</h1> */}
     </div>

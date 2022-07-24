@@ -11,7 +11,7 @@ export const pokedexNav = (navigate) => {
 export const detailsNav = (navigate) => {
 
 
-    navigate('detail')
+    navigate('/detail')
 
 }
 export const voltar = (navigate) => {
