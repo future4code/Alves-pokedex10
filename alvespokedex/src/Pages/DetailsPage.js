@@ -4,7 +4,7 @@ import  GlobalContext  from '../Global/GlobalContext'
 import Ohno from '../imagens/ohno.png'
 import Pokedex from './Pokedex';
 import styled from 'styled-components';
-import pokebola from "../imagens/pokebola"
+import pokebola from "../imagens/pokebola.png";
 
 
 const Titulo = styled.h1`
@@ -21,24 +21,24 @@ const Titulo = styled.h1`
     border-radius: 12px;
     margin: 1.563rem;
     justify-content: space-around;
-    background-color: ${props => props.typePokemon === "grass" && "#729F92;"};
-    background-color: ${props => props.typePokemon === "fire" && "#EAAB7D;"};
-    background-color: ${props => props.typePokemon === "water" && "#71C3FF;"};
-    background-color: ${props => props.typePokemon === "bug" && "#76A866"};
-    background-color: ${props => props.typePokemon === "normal" && "#BF9762;"};
-    background-color: ${props => props.typePokemon === "poison" && "#D1A3D0"};
-    background-color: ${props => props.typePokemon === "electric" && "#FFC95E"};
-    background-color: ${props => props.typePokemon === "ground" && "#B6866F"};
-    background-color: ${props => props.typePokemon === "fairy" && "#BD7886"};
-    background-color: ${props => props.typePokemon === "fighting" && "#B0385A"};
-    background-color: ${props => props.typePokemon === "psychic" && "#E05E65"};
-    background-color: ${props => props.typePokemon === "rock" && "#9E8F65"};
-    background-color: ${props => props.typePokemon === "ghost" && "#7084CA"};
-    background-color: ${props => props.typePokemon === "ice" && "#48A497"};
-    background-color: ${props => props.typePokemon === "dragon" && "#004170;"};
-    background-color: ${props => props.typePokemon === "steel" && "#B7B9D0"};
-    background-color: ${props => props.typePokemon === "dark" && "#55433C"};
-    background-color: ${props => props.typePokemon === "flying" && "#A891EC"};
+    background-color: ${props => props.type === "grass" && "#729F92;"};
+    background-color: ${props => props.type === "fire" && "#EAAB7D;"};
+    background-color: ${props => props.type === "water" && "#71C3FF;"};
+    background-color: ${props => props.type === "bug" && "#76A866"};
+    background-color: ${props => props.type === "normal" && "#BF9762;"};
+    background-color: ${props => props.type === "poison" && "#D1A3D0"};
+    background-color: ${props => props.type === "electric" && "#FFC95E"};
+    background-color: ${props => props.type === "ground" && "#B6866F"};
+    background-color: ${props => props.type === "fairy" && "#BD7886"};
+    background-color: ${props => props.type === "fighting" && "#B0385A"};
+    background-color: ${props => props.type === "psychic" && "#E05E65"};
+    background-color: ${props => props.type === "rock" && "#9E8F65"};
+    background-color: ${props => props.type === "ghost" && "#7084CA"};
+    background-color: ${props => props.type === "ice" && "#48A497"};
+    background-color: ${props => props.type === "dragon" && "#004170;"};
+    background-color: ${props => props.type === "steel" && "#B7B9D0"};
+    background-color: ${props => props.type === "dark" && "#55433C"};
+    background-color: ${props => props.type === "flying" && "#A891EC"};
     background-image: url(${pokebola});
     background-size: 55%;
     background-repeat: no-repeat;
@@ -157,74 +157,31 @@ const Info = styled.section`
     font-weight: 400;
     margin-bottom: 1.25rem;
 `
-//  const ContainerImgBig = styled.section`
-//     height: 48rem;
-//     align-self: flex-end;
-//     width: 16.875rem;
-//     display: flex;
-//     flex-direction: column;
-//     align-items: center;
-//     @media (max-width: 480px) {
-//         width: 10rem;
-//         height: 8rem;
-//         font-size: 14px;
-//         flex-direction: row;
-//         align-self: flex-start;
-//     }
-// `
-//  const ImgBig = styled.img`
-//     width: 16.875rem;
-//     height: 16.875rem;
-//     @media (max-width: 480px) {
-//         width: 5rem;
-//         height: 5rem;
-//     }
-// `
-//  const ButtonCaptur = styled.button`
-//     border-radius: 8px;
-//     background-color: #FFFFFF;
-//     color: #0F0F0F;
-//     width: 10rem;
-//     height: 3rem;
-//     border: none;
-//     padding: 0.25rem 0.625rem ;
-//     font-family: 'Poppins', sans-serif;
-//     font-size: 16px;
-//     cursor: pointer;
-//     margin-top: 3rem;
-//     :hover {
-//         background-color: #FF6262;
-//         color: #FFFFFF;
-//     }
-//     @media (max-width: 480px) {
-//         width: 5rem;
-//         height: 1.5rem;
-//         font-size: 10px;
-//     }
-// `
-//  const ButtonDelete = styled.button`
-//     width: 10rem;
-//     height: 3rem;
-//     background-color: #FF6262;
-//     border-radius: 8px;
-//     padding: 0.25rem 0.625rem;
-//     border: none;
-//     font-family: 'Poppins', sans-serif;
-//     font-size: 20px;
-//     font-weight: 400;
-//     color: #FFFFFF;
-//     margin-top: 3rem;
-//     cursor: pointer;
-//     :hover {
-//         background-color: #FFFFFF;
-//         color: #0F0F0F;
-//     }
-//     @media (max-width: 480px) {
-//         width: 5rem;
-//         height: 1.5rem;
-//         font-size: 10px;
-//     }
-// `
+ const BoxMainImage = styled.section`
+    height: 48rem;
+    align-self: flex-end;
+    width: 16.875rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    @media (max-width: 480px) {
+        width: 10rem;
+        height: 8rem;
+        font-size: 14px;
+        flex-direction: row;
+        align-self: flex-start;
+    }
+`
+ const MainImg = styled.img`
+    width: 16.875rem;
+    height: 16.875rem;
+    @media (max-width: 480px) {
+        width: 5rem;
+        height: 5rem;
+    }
+`
+
+
  const Status = styled.section`
 display: flex;
 align-items: center;
@@ -255,24 +212,23 @@ margin-right:auto;
         height: 0.5rem;
     }
 `
-export default function DetailsPage() {
- 
-  const {pokeDetail} = useContext(GlobalContext)
+
+export default function DetailsPage () {
+ const { pokeDetail } = useContext(GlobalContext)
 
   console.log(pokeDetail)
-
 
   return (
     <div>
      <ContainerDetalhe  >
       <Titulo>Detalhes</Titulo>
-      <ContainerPoke typePokemon={pokeDetail.types && pokeDetail.types[0].type && pokeDetail.types[0].type.name}>
+      <ContainerPoke type={pokeDetail && pokeDetail.types[0].type.name}>
         <ContainerGrande>
           <ImagemPequena>
-            <ImgPequena src={pokeDetail.images && pokeDetail.images.front_default} />
+            <ImgPequena src={pokeDetail.sprites && pokeDetail.sprites.front_default} />
           </ImagemPequena>
           <ImagemPequena>
-            <ImgPequena src={pokeDetail.images && pokeDetail.images.back_default} />
+            <ImgPequena src={pokeDetail.sprites && pokeDetail.sprites.back_default} />
           </ImagemPequena>
         </ContainerGrande>
         <ContainerStatus>
@@ -302,14 +258,17 @@ export default function DetailsPage() {
           </ContainerInfo>
           <Movimento1>
             <p>Habilidades:</p>
-            {pokeDetail.moves && pokeDetail.moves.map((move) => {
-              const pokeMove = move.ability.name
+            {pokeDetail.moves && pokeDetail.moves.map((ability) => {
+              const pokeMove = ability.move.name
               return (
                 <Movimento2>{pokeMove}</Movimento2>
               )
             })}
           </Movimento1>
         </Info>
+        <BoxMainImage>
+          <MainImg src={pokeDetail.sprites.other["official-artwork"].front_default} />
+        </BoxMainImage>
         </ContainerPoke>
     </ContainerDetalhe>
     </div>
