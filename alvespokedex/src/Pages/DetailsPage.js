@@ -6,22 +6,15 @@ import Pokedex from './Pokedex';
 import styled from 'styled-components';
 import pokebola from "../imagens/pokebola"
 
- const ContainerDetail = styled.section`
-    background-color: #5E5E5E;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    width: 100%;
-    align-items: center;
-`
- const Titles = styled.h1`
-    font-family: 'Poppins', sans-serif;
+
+const Titulo = styled.h1`
     font-weight: 700;
     color: #FFFFFF;
     align-self: flex-start;
     margin-left: 1.563rem;
-`
- const ContainerPokemon = styled.section`
+    font-family: 'Poppins', sans-serif;
+    `
+ const ContainerPoke = styled.section`
     display: flex;
     width: calc(100% - 1.563rem);
     height: 41rem;
@@ -51,12 +44,32 @@ import pokebola from "../imagens/pokebola"
     background-repeat: no-repeat;
     background-position: 58.5rem;
     @media (max-width: 480px) {
-        height: 100%;
-        width: 100%;
-        flex-wrap: wrap;
+      height: 100%;
+      width: 100%;
+      flex-wrap: wrap;
     }
-`
- const BigContainerSmall = styled.section`
+    `
+    const ContainerDetalhe = styled.section`
+       background-color: #5E5E5E;
+       display: flex;
+       flex-direction: column;
+       height: 100%;
+       width: 100%;
+       align-items: center;
+       `
+       const ImagemPequena = styled.section`
+          width: 17.625rem;
+          height: 17.625rem;
+          background-color: #FFFFFF;
+          border-radius: 8px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          @media (max-width: 480px) {
+             display: none;
+          }
+      `
+ const ContainerGrande = styled.section`
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -64,28 +77,20 @@ import pokebola from "../imagens/pokebola"
         display: none;
     }
 `
- const ContainerImgSmall = styled.section`
-    width: 17.625rem;
-    height: 17.625rem;
-    background-color: #FFFFFF;
-    border-radius: 8px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    @media (max-width: 480px) {
-       display: none;
-    }
-`
 
- const ImgSmall = styled.img`
+ const ImgPequena = styled.img`
     width: 8rem;
     height: 8rem;
     @media (max-width: 480px) {
         display: none;
-    }
-`
-
- const ContainerStats = styled.section`
+      }
+      `
+const Info = styled.section`
+         display: flex;
+         flex-direction: column;
+         justify-content: space-around;
+         `
+ const ContainerStatus = styled.section`
     margin-top: auto;
     margin-bottom: auto;
     width: 21.438rem;
@@ -105,12 +110,7 @@ import pokebola from "../imagens/pokebola"
     }
 `
 
- const ContainerData = styled.section`
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-`
- const H2 = styled.h2`
+ const Letra1 = styled.h2`
     font-size: 48px;
     margin: 0;
     color: #FFFFFF;
@@ -118,18 +118,18 @@ import pokebola from "../imagens/pokebola"
         font-size: 20px;
     }
 `
- const H3 = styled.h3`
+ const Letra2 = styled.h3`
     font-size: 16px;
     margin: 0;
     color: #FFFFFF;
 `
 
- const ContainerInfos = styled.section`
+ const ContainerInfo = styled.section`
     display: flex;
     flex-direction: column;
 `
 
- const ContainerMoves = styled.section`
+ const Movimento1 = styled.section`
     width: 18.25rem;
     height: 28.313rem;
     background-color: #FFFFFF;
@@ -147,7 +147,7 @@ import pokebola from "../imagens/pokebola"
     }
 `
 
- const Moves = styled.section`
+ const Movimento2 = styled.section`
     border: 1px dashed rgba(0, 0, 0, 0.14);
     padding: 0.625rem;
     border-radius: 12px;
@@ -157,75 +157,75 @@ import pokebola from "../imagens/pokebola"
     font-weight: 400;
     margin-bottom: 1.25rem;
 `
- const ContainerImgBig = styled.section`
-    height: 48rem;
-    align-self: flex-end;
-    width: 16.875rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    @media (max-width: 480px) {
-        width: 10rem;
-        height: 8rem;
-        font-size: 14px;
-        flex-direction: row;
-        align-self: flex-start;
-    }
-`
- const ImgBig = styled.img`
-    width: 16.875rem;
-    height: 16.875rem;
-    @media (max-width: 480px) {
-        width: 5rem;
-        height: 5rem;
-    }
-`
- const ButtonCaptur = styled.button`
-    border-radius: 8px;
-    background-color: #FFFFFF;
-    color: #0F0F0F;
-    width: 10rem;
-    height: 3rem;
-    border: none;
-    padding: 0.25rem 0.625rem ;
-    font-family: 'Poppins', sans-serif;
-    font-size: 16px;
-    cursor: pointer;
-    margin-top: 3rem;
-    :hover {
-        background-color: #FF6262;
-        color: #FFFFFF;
-    }
-    @media (max-width: 480px) {
-        width: 5rem;
-        height: 1.5rem;
-        font-size: 10px;
-    }
-`
- const ButtonDelete = styled.button`
-    width: 10rem;
-    height: 3rem;
-    background-color: #FF6262;
-    border-radius: 8px;
-    padding: 0.25rem 0.625rem;
-    border: none;
-    font-family: 'Poppins', sans-serif;
-    font-size: 20px;
-    font-weight: 400;
-    color: #FFFFFF;
-    margin-top: 3rem;
-    cursor: pointer;
-    :hover {
-        background-color: #FFFFFF;
-        color: #0F0F0F;
-    }
-    @media (max-width: 480px) {
-        width: 5rem;
-        height: 1.5rem;
-        font-size: 10px;
-    }
-`
- const ContainerProgress = styled.section`
+//  const ContainerImgBig = styled.section`
+//     height: 48rem;
+//     align-self: flex-end;
+//     width: 16.875rem;
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+//     @media (max-width: 480px) {
+//         width: 10rem;
+//         height: 8rem;
+//         font-size: 14px;
+//         flex-direction: row;
+//         align-self: flex-start;
+//     }
+// `
+//  const ImgBig = styled.img`
+//     width: 16.875rem;
+//     height: 16.875rem;
+//     @media (max-width: 480px) {
+//         width: 5rem;
+//         height: 5rem;
+//     }
+// `
+//  const ButtonCaptur = styled.button`
+//     border-radius: 8px;
+//     background-color: #FFFFFF;
+//     color: #0F0F0F;
+//     width: 10rem;
+//     height: 3rem;
+//     border: none;
+//     padding: 0.25rem 0.625rem ;
+//     font-family: 'Poppins', sans-serif;
+//     font-size: 16px;
+//     cursor: pointer;
+//     margin-top: 3rem;
+//     :hover {
+//         background-color: #FF6262;
+//         color: #FFFFFF;
+//     }
+//     @media (max-width: 480px) {
+//         width: 5rem;
+//         height: 1.5rem;
+//         font-size: 10px;
+//     }
+// `
+//  const ButtonDelete = styled.button`
+//     width: 10rem;
+//     height: 3rem;
+//     background-color: #FF6262;
+//     border-radius: 8px;
+//     padding: 0.25rem 0.625rem;
+//     border: none;
+//     font-family: 'Poppins', sans-serif;
+//     font-size: 20px;
+//     font-weight: 400;
+//     color: #FFFFFF;
+//     margin-top: 3rem;
+//     cursor: pointer;
+//     :hover {
+//         background-color: #FFFFFF;
+//         color: #0F0F0F;
+//     }
+//     @media (max-width: 480px) {
+//         width: 5rem;
+//         height: 1.5rem;
+//         font-size: 10px;
+//     }
+// `
+ const Status = styled.section`
 display: flex;
 align-items: center;
 margin-left: auto;
@@ -247,7 +247,7 @@ margin-right:auto;
     }
 `
 
- const Progress = styled.progress`
+ const Progresso = styled.progress`
     height: 1rem;
     background-color: #FF6262;
     margin-left: 1rem;
@@ -264,54 +264,54 @@ export default function DetailsPage() {
 
   return (
     <div>
-     <ContainerDetail  >
-      <Titles>Detalhes</Titles>
-      <ContainerPokemon typePokemon={types && types[0].type && types[0].type.name}>
-        <BigContainerSmall>
-          <ContainerImgSmall>
-            <ImgSmall src={images && images.front_default} />
-          </ContainerImgSmall>
-          <ContainerImgSmall>
-            <ImgSmall src={images && images.back_default} />
-          </ContainerImgSmall>
-        </BigContainerSmall>
-        <ContainerStats>
+     <ContainerDetalhe  >
+      <Titulo>Detalhes</Titulo>
+      <ContainerPoke typePokemon={pokeDetail.types && pokeDetail.types[0].type && pokeDetail.types[0].type.name}>
+        <ContainerGrande>
+          <ImagemPequena>
+            <ImgPequena src={pokeDetail.images && pokeDetail.images.front_default} />
+          </ImagemPequena>
+          <ImagemPequena>
+            <ImgPequena src={pokeDetail.images && pokeDetail.images.back_default} />
+          </ImagemPequena>
+        </ContainerGrande>
+        <ContainerStatus>
           <p>Experiência:</p>
-          {stats && stats.map((status) => {
+          {pokeDetail.stats && pokeDetail.stats.map((status) => {
             return (
-              <ContainerProgress>
+              <Status>
                 <p>{status.stat.name} {status.base_stat} </p>
-                <Progress max={200} value={status.base_stat} key={status.stat.name}></Progress>
-              </ContainerProgress>
+                <Progresso max={200} value={status.base_stat} key={status.stat.name}></Progresso>
+              </Status>
             )
           })}
-          <p>total = {stats && stats[0]?.base_stat + stats[1]?.base_stat + stats[2]?.base_stat + stats[3]?.base_stat + stats[4]?.base_stat + stats[5]?.base_stat}</p>
-        </ContainerStats>
-        <ContainerData>
-          <ContainerInfos>
-            <H3 >#{pokeDetail.id}</H3>
-            <H2>{pokeDetail.name}</H2>
+          <p>total = {pokeDetail.stats && pokeDetail.stats[0]?.base_stat + pokeDetail.stats[1]?.base_stat + pokeDetail.stats[2]?.base_stat + pokeDetail.stats[3]?.base_stat + pokeDetail.stats[4]?.base_stat + pokeDetail.stats[5]?.base_stat}</p>
+        </ContainerStatus>
+        <Info>
+          <ContainerInfo>
+            <Letra2 >#{pokeDetail.id}</Letra2>
+            <Letra1>{pokeDetail.name}</Letra1>
             <div>
-              {types && types.map((type) => {
+              {pokeDetail.types && pokeDetail.types.map((type) => {
                 const pokemonType = type.type.name
                 return (
-                  <DefineTypes pokemonType={pokemonType} />
+                  <div pokemonType={pokemonType} />
                 )
               })}
             </div>
-          </ContainerInfos>
-          <ContainerMoves>
+          </ContainerInfo>
+          <Movimento1>
             <p>Habilidades:</p>
-            {moves && moves.map((move) => {
+            {pokeDetail.moves && pokeDetail.moves.map((move) => {
               const pokeMove = move.ability.name
               return (
-                <Moves>{pokeMove}</Moves>
+                <Movimento2>{pokeMove}</Movimento2>
               )
             })}
-          </ContainerMoves>
-        </ContainerData>
-        </ContainerPokemon>
-    </ContainerDetail>
+          </Movimento1>
+        </Info>
+        </ContainerPoke>
+    </ContainerDetalhe>
     </div>
   )
 }
