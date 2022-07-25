@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components';
+import pokebola from '../imagens/pokebola.png'
 
 const StyleCard = styled.div`
     background-size: 100%;
@@ -31,11 +32,14 @@ const StyleCard = styled.div`
     background: ${props => props.type === "rock" && "#9E8F65"};
     background: ${props => props.type === "steel" && "#B7B9D0"};
     background: ${props => props.type === "water" && "#71C3FF;"};
+    background-image: url(${pokebola});
+    background-repeat:no-repeat;
+    background-position: 115%; 
+    background-position-y:-8vh;
     img{
     position:relative;
-    width: 12.063rem;
-    height: 12.063rem;
-    left:20%;
+    width: 193px;
+    height: 193px;
     bottom: 25%;
     margin-bottom: 5vh;
     }

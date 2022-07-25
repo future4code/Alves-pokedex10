@@ -1,9 +1,13 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { detailsNav } from '../Router/Coordinator';
-import  GlobalContext  from '../Global/GlobalContext';
+import GlobalContext from '../Global/GlobalContext';
 import axios from 'axios';
 import styled from 'styled-components';
+import Ohno from '../imagens/ohno.png'
+import Popup from 'reactjs-popup';
+import PokeCard from '../Components/PokeCard';
+import Type from '../Components/Type';
 
 const Container = styled.div`
     background-color: #5E5E5E;
@@ -33,7 +37,7 @@ const BotaoDelete = styled.button`
         font-size: 14px;
     }
     `
-    const Titulo = styled.h1`
+const Titulo = styled.h1`
         font-family: 'Poppins', sans-serif;
         font-weight: 700;
         color: #FFFFFF;
@@ -43,37 +47,50 @@ const Card = styled.div`
     flex-wrap: wrap;
     justify-content: space-around;
 `
+const Box = styled.div`
+display: flex;
+justify-content: space-evenly;
+width: 60%;
+`
+const Container2 = styled.div`
+width: 100%;
+`
 
 
 
- function Pokedex() {
- 
+function Pokedex() {
+
   const navigate = useNavigate();
   const { pokedex, setPokedex, pokemonsCard, setPokemonsCard, setPokeDetail, removeCard } = useContext(GlobalContext);
+  const [open, setOpen] = useState(false);
+  const closeModal = () => setOpen(false);
 
   return (
     <Container>
-     <Titulo> Meus Pokémons </Titulo>
-     {/* <Card> */}
-      {pokedex && pokedex.map((pokemon)=> {
-        return <div>
-         {/* <PokeCard cardType={pokemon.type.name[0]}> */}
-              <div>
-              <p>#{pokemon.id}</p>
-              <h2>{pokemon.name}</h2>
-              <div>
-              Types: {pokemon.types.map((ele)=>{return <div>{ele.type.name}</div>})}
-              </div>
-              <img src={pokemon.sprites.other["official-artwork"].front_default}></img>
-              </div>
-              <div>
-              <button onClick={()=>{setPokeDetail(pokemon);detailsNav(navigate)}}>Detalhes</button>
-              <BotaoDelete onClick={()=>removeCard(pokemon)}>Libertar</BotaoDelete>
-              </div>
-           {/* </PokeCard>  */}
-            </div>
-            })}
-{/* </Card> */}
+      <Titulo> Meus Pokémons </Titulo>
+      {/* <Card> */}
+      {pokedex && pokedex.map((pokemon) => {
+        return <PokeCard cardType={pokemon.types[0].type.name}>
+          <Container2>
+            <p>#{pokemon.id}</p>
+            <h2>{pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}</h2>
+            <h3>Types:</h3>
+            <Box>
+              {pokemon.types.map((ele) => { return <Type typeStyle={ele.type.name}>{ele.type.name.charAt(0).toUpperCase() + ele.type.name.slice(1)}</Type> })}
+            </Box>
+            <button onClick={() => { setPokeDetail(pokemon); detailsNav(navigate) }}>Detalhes</button>
+            <BotaoDelete onClick={() => { removeCard(pokemon); setOpen(o => !o) }}>Libertar!</BotaoDelete>
+          </Container2>
+          <img src={pokemon.sprites.other["official-artwork"].front_default}></img>
+        </PokeCard>
+      })}
+            <Popup
+              open={open} closeOnDocumentClick onClose={closeModal}
+              position='top center'
+              nested>
+              <img src={Ohno} />
+            </Popup>
+      {/* </Card> */}
     </Container>
   );
 }

@@ -5,6 +5,7 @@ export const ContainerHeader = styled.section`
     height: 10rem;
     display: flex;
     align-items: center;
+    background-color:#FFFFFF;
 `
 
 export const Nav = styled.nav`

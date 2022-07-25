@@ -1,19 +1,20 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { pokedexNav, detailsNav } from '../Router/Coordinator'
 import  GlobalContext  from '../Global/GlobalContext'
-
+import Gotcha from '../imagens/gotcha.png'
 import styled from 'styled-components';
 import PokeCard from '../Components/PokeCard';
 import Type from '../Components/Type';
+import Popup from 'reactjs-popup'
 
 const Box = styled.div`
 display: flex;
 justify-content: space-evenly;
 width: 60%;
 `
-const Container = styled.div`
+const Container2 = styled.div`
 width: 100%;
 `
 
@@ -38,6 +39,7 @@ const CardsContainer = styled.section`
 `
 const Pagina = styled.section`
     display: flex;
+    flex-wrap: wrap;
     font-size: 24px;
     justify-content: center;
     margin-top: 1rem;
@@ -68,11 +70,13 @@ const Pagina = styled.section`
   const navigate = useNavigate()
 
   const {pokemons, setPokedex, pokedex, setPokeDetail} = useContext(GlobalContext)
+  const [open, setOpen] = useState(false);
+  const closeModal = () => setOpen(false);
+
   const handleCard = (pokemon)=> {
     let arraypokes = pokedex
       arraypokes = [...arraypokes, pokemon]
     setPokedex(arraypokes)
-    console.log(pokedex)
   }
   console.log(pokemons)
   return (
@@ -83,7 +87,7 @@ const Pagina = styled.section`
       <Pagina>
       {pokemons && pokemons.map((pokemon)=> {
         return <PokeCard cardType={pokemon.types[0].type.name}>
-              <Container>
+              <Container2>
               <p>#{pokemon.id}</p>
               <h2>{pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}</h2>
               <h3>Types:</h3>
@@ -91,12 +95,18 @@ const Pagina = styled.section`
                {pokemon.types.map((ele)=>{return <Type typeStyle={ele.type.name}>{ele.type.name.charAt(0).toUpperCase() + ele.type.name.slice(1)}</Type>})}
               </Box>
               <button onClick={()=>{setPokeDetail(pokemon); detailsNav(navigate)}}>Detalhes</button>
-              <button onClick={()=>handleCard(pokemon)}>Capturar!</button>
-              </Container>
+              <button onClick={()=>{handleCard(pokemon);setOpen(o => !o)}}>Capturar!</button>
+              </Container2>
               <img src={pokemon.sprites.other["official-artwork"].front_default}></img>
            </PokeCard> 
             })}
       
+              <Popup 
+              open={open} closeOnDocumentClick onClose={closeModal}
+               position='top center' 
+               nested>
+                <img src={Gotcha}/>
+              </Popup>
      
       </Pagina>
     </Container>
