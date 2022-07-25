@@ -5,7 +5,7 @@ Nome dos integrantes:
 - Gabriela
 - Henrique
 
-Link do Surge: www.link.com.br
+Link do Surge: pokedex-tuba-gabi-rick.surge.sh
 
 O que funciona:
 - Item 1
