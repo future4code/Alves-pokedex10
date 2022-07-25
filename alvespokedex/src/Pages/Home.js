@@ -12,7 +12,7 @@ import Popup from 'reactjs-popup'
 const Box = styled.div`
 display: flex;
 justify-content: space-evenly;
-width: 60%;
+width: 100%;
 `
 const Container2 = styled.div`
 width: 100%;
@@ -65,6 +65,50 @@ const Pagina = styled.section`
         height: 3rem;
     }
 `
+const ButtonCapturar = styled.button`
+/* Frame 5 */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 4px 10px;
+
+width: 146px;
+height: 38px;
+
+background: #FFFFFF;
+border-radius: 8px;
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Capturar! */
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 400;
+font-size: 20px;
+line-height: 24px;
+/* identical to box height */
+
+color: #0F0F0F;
+border:none;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+`
+const BoxButton = styled.div`
+display:flex;
+width:100%;
+justify-content: space-between;
+`
 
  function Home() {
   const navigate = useNavigate()
@@ -94,8 +138,10 @@ const Pagina = styled.section`
               <Box>
                {pokemon.types.map((ele)=>{return <Type typeStyle={ele.type.name}>{ele.type.name.charAt(0).toUpperCase() + ele.type.name.slice(1)}</Type>})}
               </Box>
+              <BoxButton>
               <button onClick={()=>{setPokeDetail(pokemon); detailsNav(navigate)}}>Detalhes</button>
-              <button onClick={()=>{handleCard(pokemon);setOpen(o => !o)}}>Capturar!</button>
+              <ButtonCapturar onClick={()=>{handleCard(pokemon);setOpen(o => !o)}}>Capturar!</ButtonCapturar>
+              </BoxButton>
               </Container2>
               <img src={pokemon.sprites.other["official-artwork"].front_default}></img>
            </PokeCard> 
