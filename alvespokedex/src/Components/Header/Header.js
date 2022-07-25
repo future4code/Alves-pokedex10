@@ -18,7 +18,7 @@ const Header = () => {
             )
         } else if (window.location.pathname === "/detail") {
             return (
-                <ButtonDel onClick={removeCard(pokeDetail)}>Excluir Pokemon</ButtonDel>
+                <ButtonDel onClick={()=>removeCard(pokeDetail)}>Excluir Pokemon</ButtonDel>
             )
         }
     }

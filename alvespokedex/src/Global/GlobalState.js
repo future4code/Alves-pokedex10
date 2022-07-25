@@ -21,7 +21,6 @@ const removeCard = (pokemon)=> {
       arrayPokemons= [...arrayPokemons, pokemon]
     setPokedex(arraypokes)
     setPokemons(arrayPokemons)
-    console.log(pokedex)
   }
 
   const getPokemons = () => {
@@ -33,7 +32,6 @@ const removeCard = (pokemon)=> {
       array.forEach((pokemon) => {
         axios.get(pokemon.url).then(
           (res) => { 
-            console.log(res)
             arraypoke = [...arraypoke, {
               name : res.data.name, 
               stats: res.data.stats, 
